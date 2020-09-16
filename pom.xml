@@ -1,0 +1,128 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>local</groupId>
+	<artifactId>readyapitest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>readyapitest</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.junit.version>5.3.2</project.junit.version>
+		<project.junit-platform.version>1.6.0</project.junit-platform.version>
+		<maven.compiler.plugin>3.8</maven.compiler.plugin>
+		<maven.compiler.source>12</maven.compiler.source>
+		<maven.compiler.target>12</maven.compiler.target>
+		<javax.activation.version>1.2.0</javax.activation.version>
+		<jaxb.api.version>2.3.0</jaxb.api.version>
+	</properties>
+
+
+	<repositories>
+		<repository>
+			<id>SmartBear Repository</id>
+			<url>http://smartbearsoftware.com/repository/maven2</url>
+		</repository>
+		<repository>
+			<id>org.squashtest.ta.release</id>
+			<name>squashtest test automation - releases</name>
+			<url>http://repo.squashtest.org/maven2/releases</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${project.junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${project.junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-commons</artifactId>
+			<version>${project.junit-platform.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-engine</artifactId>
+			<version>${project.junit-platform.version}</version>
+		</dependency>
+		
+		<!-- ReadyAPI 3.3.2 Tests dependencies  -->
+		<dependency>
+			<groupId>com.smartbear</groupId>
+			<artifactId>ready-api-runners</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.smartbear</groupId>
+			<artifactId>ready-api-maven-plugin</artifactId>
+			<version>3.3.2</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.olap4j</groupId>
+			<artifactId>olap4j</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.2</version>
+		</dependency>
+
+		<!--  TF metadata for Junit project  -->
+		<dependency>
+			<groupId>org.squashtest.ta.galaxia</groupId>
+			<artifactId>squash-tf-galaxia-annotations</artifactId>
+			<version>1.0.0-RELEASE</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<!-- Configuration of the Squash TA framework used by the project -->
+			<plugin>
+				<!-- org.squashtest.ta.galaxia:squash-tf-junit-runner-maven-plugin -->
+				<groupId>org.squashtest.ta.galaxia</groupId>
+				<artifactId>squash-tf-junit-runner-maven-plugin</artifactId>
+				<version>1.2.0-RELEASE</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.sun.activation</groupId>
+						<artifactId>javax.activation</artifactId>
+						<version>${javax.activation.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>javax.xml.bind</groupId>
+						<artifactId>jaxb-api</artifactId>
+						<version>${jaxb.api.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.sun.xml.bind</groupId>
+						<artifactId>jaxb-core</artifactId>
+						<version>${jaxb.api.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>com.sun.xml.bind</groupId>
+						<artifactId>jaxb-impl</artifactId>
+						<version>${jaxb.api.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+</project>

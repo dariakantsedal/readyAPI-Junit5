@@ -1,0 +1,40 @@
+Status: FAIL
+Time Taken: 847
+Size: 72
+Timestamp: Wed Sep 16 15:07:09 CEST 2020
+TestStep: TestOK
+
+----------------- Messages ------------------------------
+[Message Content Assertion 2] Message Content Assertion failed : failed/compared = 1/4<br/>&nbsp;Failed "John = ${valeur}" for path [declare namespace ns1='http://0.0.0.0/users/id';
+//ns1:Response[1]/ns1:firstname[1]]<br/>
+
+----------------- Properties ------------------------------
+HTTP Version: HTTP/1.1
+Endpoint: http://0.0.0.0:3000
+Method: GET
+StatusCode: 200
+URL: http://0.0.0.0:3000/users/id
+
+---------------- Request ---------------------------
+Connection: [Keep-Alive]
+User-Agent: [Apache-HttpClient/4.5.2 (Java/12.0.2)]
+Host: [0.0.0.0:3000]
+Accept-Encoding: [gzip,deflate]
+Content-Length: [0]
+
+GET http://0.0.0.0:3000/users/id HTTP/1.1
+Accept-Encoding: gzip,deflate
+Content-Length: 0
+Host: 0.0.0.0:3000
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.2 (Java/12.0.2)
+
+
+---------------- Response --------------------------
+Connection: [keep-alive]
+#status#: [HTTP/1.1 200 OK]
+Content-Length: [72]
+Date: [Wed, 16 Sep 2020 13:07:10 GMT]
+Content-Type: [application/json; charset=utf-8]
+
+{"id":1,"firstname":"John","Lastname":"Snow","status":"Learning things"}
